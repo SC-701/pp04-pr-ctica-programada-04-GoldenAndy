@@ -1,0 +1,58 @@
+﻿@page
+@model Web.Pages.Vehiculos.DetalleModel
+@{
+}
+
+
+<h1>Detalle Vehiculo</h1>
+
+<div class="container mt-4">
+    <div class="col-md-8">
+        <div class="card shadow-sm">
+            <div class="card-body">
+
+                <h5 class="card-title">
+                    @Html.DisplayFor(modelo => modelo.vehiculo.Marca)
+                    @Html.DisplayFor(modelo => modelo.vehiculo.Modelo)
+                </h5>
+
+                <p class="card-text">
+
+                    <div>
+                        <b>@Html.DisplayNameFor(modelo => modelo.vehiculo.Placa):</b>
+                        @Html.DisplayFor(modelo => modelo.vehiculo.Placa)
+                    </div>
+
+                    <div>
+                        <b>@Html.DisplayNameFor(modelo => modelo.vehiculo.Anio):</b>
+                        @Html.DisplayFor(modelo => modelo.vehiculo.Anio)
+                    </div>
+
+                    <div>
+                        <b>@Html.DisplayNameFor(modelo => modelo.vehiculo.Color):</b>
+                        @Html.DisplayFor(modelo => modelo.vehiculo.Color)
+                    </div>
+
+                    <div>
+                        <b>@Html.DisplayNameFor(modelo => modelo.vehiculo.Precio):</b>
+                        @Html.DisplayFor(modelo => modelo.vehiculo.Precio)
+                    </div>
+
+                    <div>
+                        <b>@Html.DisplayNameFor(modelo => modelo.vehiculo.CorreoPropietario):</b>
+                        @Html.DisplayFor(modelo => modelo.vehiculo.CorreoPropietario)
+                    </div>
+
+                    <div>
+                        <b>@Html.DisplayNameFor(modelo => modelo.vehiculo.TelefonoPropietario):</b>
+                        @Html.DisplayFor(modelo => modelo.vehiculo.TelefonoPropietario)
+                    </div>
+
+                </p>
+            </div>
+        </div>
+    </div>
+    <a type="button" class="btn btn-primary" asp-page="./Index">Regresar</a>
+    <a type="button" class="btn btn-warning" asp-page="./Editar" asp-route-id="@Model.vehiculo.Id">Editar</a>
+
+</div>
