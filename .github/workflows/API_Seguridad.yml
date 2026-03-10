@@ -9,7 +9,7 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - 'Ejemplos/Seguridad/Seguridad.API/**'
+      - 'Seguridad/Seguridad.API/**'
   workflow_dispatch:
 
 permissions:
@@ -18,6 +18,8 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: 'Production-Database'
 
     steps:
       - uses: actions/checkout@v4
@@ -33,26 +35,27 @@ jobs:
             "https://nuget.pkg.github.com/SC-701/index.json" \
             --name "Paquetes" \
             --username "${{ github.actor }}" \
-            --password "${{ secrets.GITHUB_TOKEN }}" \
+            --password "${{ secrets.PAQUETESTOKEN }}" \
             --store-password-in-clear-text
 
       - name: Restaurar dependencias
         run: |
-          cd "Ejemplos/Seguridad/Seguridad.API"
+          cd "Seguridad/Seguridad.API"
           dotnet restore "Abstracciones/Abstracciones.csproj"
           dotnet restore "DA/DA.csproj"
           dotnet restore "Flujo/Flujo.csproj"
           dotnet restore "Reglas/Reglas.csproj"
+          dotnet restore "Helpers/Helpers.csproj"
           dotnet restore "API/API.csproj"
 
       - name: Compilar
         run: |
-          cd "Ejemplos/Seguridad/Seguridad.API"
+          cd "Seguridad/Seguridad.API"
           dotnet build "API/API.csproj" --configuration Release --no-restore
 
       - name: Publicar (dotnet publish)
         run: |
-          cd "Ejemplos/Seguridad/Seguridad.API"
+          cd "Seguridad/Seguridad.API"
           dotnet publish "API/API.csproj" \
             --configuration Release \
             --no-build \
@@ -63,4 +66,4 @@ jobs:
         with:
           app-name:        ${{ env.AZURE_WEBAPP_NAME }}
           publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE_SEGURIDAD }}
-          package:         './Ejemplos/Seguridad/Seguridad.API/publish'
+          package:         './Seguridad/Seguridad.API/publish'
