@@ -3,56 +3,78 @@
 @{
 }
 
-
-<h1>Detalle Vehiculo</h1>
-
-<div class="container mt-4">
-    <div class="col-md-8">
-        <div class="card shadow-sm">
-            <div class="card-body">
-
-                <h5 class="card-title">
-                    @Html.DisplayFor(modelo => modelo.vehiculo.Marca)
-                    @Html.DisplayFor(modelo => modelo.vehiculo.Modelo)
-                </h5>
-
-                <p class="card-text">
-
-                    <div>
-                        <b>@Html.DisplayNameFor(modelo => modelo.vehiculo.Placa):</b>
-                        @Html.DisplayFor(modelo => modelo.vehiculo.Placa)
+<section class="page-section bg-light" id="vehiculos-detalle">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                <div class="bg-white shadow rounded-4 p-4 p-md-5">
+                    <div class="mb-4 text-center">
+                        <h1 class="fw-bold mb-2">Detalle del vehículo</h1>
+                        <p class="text-muted mb-0">Consulta la información completa del vehículo seleccionado.</p>
                     </div>
 
-                    <div>
-                        <b>@Html.DisplayNameFor(modelo => modelo.vehiculo.Anio):</b>
-                        @Html.DisplayFor(modelo => modelo.vehiculo.Anio)
+                    <div class="card border-0 shadow-sm vehiculo-detalle-card">
+                        <div class="card-body p-4">
+                            <div class="mb-4">
+                                <h3 class="fw-bold mb-1">
+                                    @Html.DisplayFor(modelo => modelo.vehiculo.Marca)
+                                    @Html.DisplayFor(modelo => modelo.vehiculo.Modelo)
+                                </h3>
+                                <p class="text-muted mb-0">Información general del vehículo</p>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <div class="detalle-item">
+                                        <span class="detalle-label">@Html.DisplayNameFor(modelo => modelo.vehiculo.Placa)</span>
+                                        <div class="detalle-value">@Html.DisplayFor(modelo => modelo.vehiculo.Placa)</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="detalle-item">
+                                        <span class="detalle-label">@Html.DisplayNameFor(modelo => modelo.vehiculo.Anio)</span>
+                                        <div class="detalle-value">@Html.DisplayFor(modelo => modelo.vehiculo.Anio)</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="detalle-item">
+                                        <span class="detalle-label">@Html.DisplayNameFor(modelo => modelo.vehiculo.Color)</span>
+                                        <div class="detalle-value">@Html.DisplayFor(modelo => modelo.vehiculo.Color)</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="detalle-item">
+                                        <span class="detalle-label">@Html.DisplayNameFor(modelo => modelo.vehiculo.Precio)</span>
+                                        <div class="detalle-value">@Html.DisplayFor(modelo => modelo.vehiculo.Precio)</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="detalle-item">
+                                        <span class="detalle-label">@Html.DisplayNameFor(modelo => modelo.vehiculo.CorreoPropietario)</span>
+                                        <div class="detalle-value">@Html.DisplayFor(modelo => modelo.vehiculo.CorreoPropietario)</div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="detalle-item">
+                                        <span class="detalle-label">@Html.DisplayNameFor(modelo => modelo.vehiculo.TelefonoPropietario)</span>
+                                        <div class="detalle-value">@Html.DisplayFor(modelo => modelo.vehiculo.TelefonoPropietario)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
-                    <div>
-                        <b>@Html.DisplayNameFor(modelo => modelo.vehiculo.Color):</b>
-                        @Html.DisplayFor(modelo => modelo.vehiculo.Color)
+                    <div class="d-flex flex-column flex-md-row gap-2 justify-content-center mt-4">
+                        <a class="btn btn-outline-secondary px-4" asp-page="./Index">Regresar</a>
+                        <a class="btn btn-warning px-4 text-dark" asp-page="./Editar" asp-route-id="@Model.vehiculo.Id">Editar</a>
                     </div>
-
-                    <div>
-                        <b>@Html.DisplayNameFor(modelo => modelo.vehiculo.Precio):</b>
-                        @Html.DisplayFor(modelo => modelo.vehiculo.Precio)
-                    </div>
-
-                    <div>
-                        <b>@Html.DisplayNameFor(modelo => modelo.vehiculo.CorreoPropietario):</b>
-                        @Html.DisplayFor(modelo => modelo.vehiculo.CorreoPropietario)
-                    </div>
-
-                    <div>
-                        <b>@Html.DisplayNameFor(modelo => modelo.vehiculo.TelefonoPropietario):</b>
-                        @Html.DisplayFor(modelo => modelo.vehiculo.TelefonoPropietario)
-                    </div>
-
-                </p>
+                </div>
             </div>
         </div>
     </div>
-    <a type="button" class="btn btn-primary" asp-page="./Index">Regresar</a>
-    <a type="button" class="btn btn-warning" asp-page="./Editar" asp-route-id="@Model.vehiculo.Id">Editar</a>
-
-</div>
+</section>

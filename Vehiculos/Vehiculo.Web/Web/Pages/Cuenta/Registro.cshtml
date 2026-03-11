@@ -1,0 +1,86 @@
+﻿@page
+@model Web.Pages.Cuenta.RegistroModel
+@{
+}
+<header class="subhead">
+    <div class="container">
+        <div class="masthead-subheading">SC-701: Programación Web Avanzada</div>
+        <div class="masthead-heading text-uppercase">Ejercicio persona</div>
+    </div>
+</header>
+
+<section class="page-section bg-light" id="principal">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 col-md-8 col-sm-10">
+                <div class="bg-white p-4 p-md-5 rounded shadow">
+                    <div class="text-center mb-4">
+                        <h2 class="text-uppercase fw-bold mb-2">Registrarse</h2>
+                        <p class="text-muted fst-italic mb-0">
+                            Lorem ipsum dolor sit amet consectetur.
+                        </p>
+                    </div>
+
+                    <form method="post">
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="bi bi-person-fill"></i>
+                            </span>
+                            <input type="text" asp-for="usuario.NombreUsuario" class="form-control"
+                                   placeholder="Nombre de Usuario" />
+                        </div>
+                        <div class="mb-3">
+                            <span asp-validation-for="usuario.NombreUsuario" class="text-danger"></span>
+                        </div>
+
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="bi bi-envelope-at-fill"></i>
+                            </span>
+                            <input type="email" asp-for="usuario.CorreoElectronico" class="form-control"
+                                   placeholder="Correo electrónico" />
+                        </div>
+                        <div class="mb-3">
+                            <span asp-validation-for="usuario.CorreoElectronico" class="text-danger"></span>
+                        </div>
+
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="bi bi-key-fill"></i>
+                            </span>
+                            <input type="password" asp-for="usuario.Password" class="form-control"
+                                   placeholder="Contraseña" />
+                        </div>
+                        <div class="mb-3">
+                            <span asp-validation-for="usuario.Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="input-group mb-2">
+                            <span class="input-group-text">
+                                <i class="bi bi-key-fill"></i>
+                            </span>
+                            <input type="password" asp-for="usuario.ConfirmarPassword" class="form-control"
+                                   placeholder="Confirmar contraseña" />
+                        </div>
+                        <div class="mb-4">
+                            <span asp-validation-for="usuario.ConfirmarPassword" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-check mb-4">
+                            <input class="form-check-input" type="checkbox" value="" id="aceptar" />
+                            <label class="form-check-label" for="aceptar">
+                                He leído y acepto <a href="#!">los términos y condiciones de uso</a>
+                            </label>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-info text-white fw-semibold py-2">
+                                Registrarse
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

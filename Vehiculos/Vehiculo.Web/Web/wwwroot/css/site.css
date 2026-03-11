@@ -20,3 +20,228 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+#principal .bg-white {
+    max-width: 440px;
+    margin: 0 auto;
+}
+
+#principal .input-group-text {
+    width: 42px;
+    justify-content: center;
+    background-color: #e9ecef;
+    border-right: 0;
+}
+
+#principal .form-control {
+    border-left: 0;
+}
+
+    #principal .form-control:focus {
+        box-shadow: none;
+    }
+
+#principal .btn-info {
+    background-color: #1389a7;
+    border-color: #1389a7;
+}
+
+    #principal .btn-info:hover {
+        background-color: #0f7088;
+        border-color: #0f7088;
+    }
+
+
+#mainNav {
+    background: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+}
+
+    #mainNav .navbar-brand {
+        color: #1f2937 !important;
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+
+    #mainNav .nav-link {
+        color: #374151 !important;
+        font-weight: 600;
+        margin-left: 0.75rem;
+        transition: color 0.2s ease;
+    }
+
+        #mainNav .nav-link:hover {
+            color: #0d6efd !important;
+        }
+
+.auth-box {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    margin-left: 1.25rem;
+    padding: 0.45rem 0.9rem;
+    background: #f8f9fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 999px;
+    white-space: nowrap;
+}
+
+.auth-user {
+    color: #374151;
+    font-size: 0.95rem;
+}
+
+    .auth-user strong {
+        color: #111827;
+    }
+
+.auth-link {
+    color: #0d6efd;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+    .auth-link:hover {
+        text-decoration: underline;
+    }
+
+.auth-link-danger {
+    color: #dc3545;
+}
+
+    .auth-link-danger:hover {
+        color: #bb2d3b;
+    }
+
+body {
+    padding-top: 90px;
+}
+
+
+
+#vehiculos-index {
+    min-height: 70vh;
+}
+
+    #vehiculos-index .vehiculo-card {
+        border-radius: 1rem;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+        #vehiculos-index .vehiculo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.08) !important;
+        }
+
+    #vehiculos-index .card-title {
+        color: #1f2937;
+    }
+
+    #vehiculos-index .btn {
+        border-radius: 0.6rem;
+    }
+
+    #vehiculos-index .badge {
+        font-size: 0.9rem;
+        border-radius: 999px;
+    }
+
+
+#vehiculos-agregar .bg-white {
+    border-radius: 1.25rem;
+}
+
+#vehiculos-agregar .form-control,
+#vehiculos-agregar .form-select {
+    border-radius: 0.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+    #vehiculos-agregar .form-control:focus,
+    #vehiculos-agregar .form-select:focus {
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.12);
+    }
+
+#vehiculos-agregar .btn {
+    border-radius: 0.75rem;
+}
+
+
+#vehiculos-detalle .vehiculo-detalle-card {
+    border-radius: 1rem;
+}
+
+#vehiculos-detalle .detalle-item {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 0.9rem;
+    padding: 1rem;
+    height: 100%;
+}
+
+#vehiculos-detalle .detalle-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+#vehiculos-detalle .detalle-value {
+    font-size: 1rem;
+    color: #1f2937;
+    word-break: break-word;
+}
+
+#vehiculos-editar .bg-white {
+    border-radius: 1.25rem;
+}
+
+#vehiculos-editar .form-control,
+#vehiculos-editar .form-select {
+    border-radius: 0.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+    #vehiculos-editar .form-control:focus,
+    #vehiculos-editar .form-select:focus {
+        box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.15);
+    }
+
+#vehiculos-editar .btn {
+    border-radius: 0.75rem;
+}
+
+
+#vehiculos-eliminar .vehiculo-eliminar-card {
+    border-radius: 1rem;
+}
+
+#vehiculos-eliminar .detalle-item {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 0.9rem;
+    padding: 1rem;
+    height: 100%;
+}
+
+#vehiculos-eliminar .detalle-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #6b7280;
+    text-transform: uppercase;
+    margin-bottom: 0.35rem;
+}
+
+#vehiculos-eliminar .detalle-value {
+    font-size: 1rem;
+    color: #1f2937;
+    word-break: break-word;
+}

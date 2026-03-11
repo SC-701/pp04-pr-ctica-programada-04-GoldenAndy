@@ -3,64 +3,78 @@
 @{
 }
 
-<h1>Editar vehiculo</h1>
+<section class="page-section bg-light" id="vehiculos-editar">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                <div class="bg-white shadow rounded-4 p-4 p-md-5">
+                    <div class="mb-4 text-center">
+                        <h1 class="fw-bold mb-2">Editar vehículo</h1>
+                        <p class="text-muted mb-0">Actualiza la información del vehículo seleccionado.</p>
+                    </div>
 
-<form method="post">
-    <div class="form-group">
-        <label for="marcas">Marca</label>
-        <select id="marcas" asp-for="marcaseleccionada" class="form-select"
-                asp-items="Model.marcas" onchange="fectModelos()">
-            <option value="">Seleccione una marca</option>
-        </select>
+                    <form method="post">
+                        <div class="mb-3">
+                            <label for="marcas" class="form-label fw-semibold">Marca</label>
+                            <select id="marcas" asp-for="marcaseleccionada" class="form-select"
+                                    asp-items="Model.marcas" onchange="fectModelos()">
+                                <option value="">Seleccione una marca</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="modelos" class="form-label fw-semibold">Modelo</label>
+                            <select asp-for="modeloseleccionado" class="form-select" asp-items="Model.modelos" id="modelos">
+                                <option value="">Seleccione un modelo</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" asp-for="vehiculoResponse.Placa"></label>
+                            <input class="form-control" asp-for="vehiculoResponse.Placa" />
+                            <span class="text-danger" asp-validation-for="vehiculoResponse.Placa"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" asp-for="vehiculoResponse.Precio"></label>
+                            <input class="form-control" asp-for="vehiculoResponse.Precio" />
+                            <span class="text-danger" asp-validation-for="vehiculoResponse.Precio"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" asp-for="vehiculoResponse.Anio"></label>
+                            <input class="form-control" asp-for="vehiculoResponse.Anio" />
+                            <span class="text-danger" asp-validation-for="vehiculoResponse.Anio"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" asp-for="vehiculoResponse.Color"></label>
+                            <input class="form-control" asp-for="vehiculoResponse.Color" />
+                            <span class="text-danger" asp-validation-for="vehiculoResponse.Color"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" asp-for="vehiculoResponse.CorreoPropietario"></label>
+                            <input class="form-control" asp-for="vehiculoResponse.CorreoPropietario" />
+                            <span class="text-danger" asp-validation-for="vehiculoResponse.CorreoPropietario"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold" asp-for="vehiculoResponse.TelefonoPropietario"></label>
+                            <input class="form-control" asp-for="vehiculoResponse.TelefonoPropietario" />
+                            <span class="text-danger" asp-validation-for="vehiculoResponse.TelefonoPropietario"></span>
+                        </div>
+
+                        <div class="d-flex flex-column flex-md-row gap-2 justify-content-center">
+                            <a class="btn btn-outline-secondary px-4" asp-page="./Index">Regresar</a>
+                            <button type="submit" class="btn btn-warning px-4 text-dark">Guardar cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-
-    <div class="form-group">
-        <label for="modelos">Modelo</label>
-        <select asp-for="modeloseleccionado" class="form-select" asp-items="Model.modelos" id="modelos">
-            <option value="">Seleccione un modelo</option>
-        </select>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label" asp-for="vehiculoResponse.Placa"></label>
-        <input class="form-control" asp-for="vehiculoResponse.Placa" />
-        <span class="text-danger" asp-validation-for="vehiculoResponse.Placa"></span>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label" asp-for="vehiculoResponse.Precio"></label>
-        <input class="form-control" asp-for="vehiculoResponse.Precio" />
-        <span class="text-danger" asp-validation-for="vehiculoResponse.Precio"></span>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label" asp-for="vehiculoResponse.Anio"></label>
-        <input class="form-control" asp-for="vehiculoResponse.Anio" />
-        <span class="text-danger" asp-validation-for="vehiculoResponse.Anio"></span>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label" asp-for="vehiculoResponse.Color"></label>
-        <input class="form-control" asp-for="vehiculoResponse.Color" />
-        <span class="text-danger" asp-validation-for="vehiculoResponse.Color"></span>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label" asp-for="vehiculoResponse.CorreoPropietario"></label>
-        <input class="form-control" asp-for="vehiculoResponse.CorreoPropietario" />
-        <span class="text-danger" asp-validation-for="vehiculoResponse.CorreoPropietario"></span>
-    </div>
-
-    <div class="form-group">
-        <label class="control-label" asp-for="vehiculoResponse.TelefonoPropietario"></label>
-        <input class="form-control" asp-for="vehiculoResponse.TelefonoPropietario" />
-        <span class="text-danger" asp-validation-for="vehiculoResponse.TelefonoPropietario"></span>
-    </div>
-
-    <br />
-    <a type="button" class="btn btn-primary" asp-page="./Index">Regresar</a>
-    <button type="submit" class="btn btn-success">Guardar</button>
-</form>
+</section>
 
 @section Scripts {
     <script>

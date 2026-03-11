@@ -1,0 +1,16 @@
+﻿@if (User.Identity != null && User.Identity.IsAuthenticated)
+{
+    <div class="auth-box">
+        <span class="auth-user">
+            Hola, <strong>@User.Identity.Name</strong>
+        </span>
+        <a asp-page="/cuenta/logout" class="auth-link auth-link-danger">Cerrar sesión</a>
+    </div>
+}
+else
+{
+    <div class="auth-box">
+        <span class="auth-user">Invitado</span>
+        <a asp-page="/cuenta/login" class="auth-link">Iniciar sesión</a>
+    </div>
+}

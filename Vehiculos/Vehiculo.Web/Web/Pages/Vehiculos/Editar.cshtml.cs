@@ -1,14 +1,17 @@
 using Abstracciones.Interfaces.Reglas;
 using Abstracciones.Modelos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Net;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json;
 
 namespace Web.Pages.Vehiculos
 {
+    [Authorize]
     public class EditarModel : PageModel
     {
         private readonly IConfiguracion _configuracion;
@@ -39,7 +42,8 @@ namespace Web.Pages.Vehiculos
                 return NotFound();
 
             string endpoint = _configuracion.ObtenerMetodo("ApiEndPoints", "ObtenerVehiculo");
-            var cliente = new HttpClient();
+
+            using var cliente = ObtenerClienteConToken();
             var solicitud = new HttpRequestMessage(HttpMethod.Get, string.Format(endpoint, id.Value));
 
             var respuesta = await cliente.SendAsync(solicitud);
@@ -94,7 +98,8 @@ namespace Web.Pages.Vehiculos
             };
 
             string endpoint = _configuracion.ObtenerMetodo("ApiEndPoints", "EditarVehiculo");
-            var cliente = new HttpClient();
+
+            using var cliente = ObtenerClienteConToken();
 
             var json = JsonSerializer.Serialize(request);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
@@ -113,7 +118,8 @@ namespace Web.Pages.Vehiculos
         private async Task ObtenerMarcas()
         {
             string endpoint = _configuracion.ObtenerMetodo("ApiEndPoints", "ObtenerMarcas");
-            var cliente = new HttpClient();
+
+            using var cliente = ObtenerClienteConToken();
             var solicitud = new HttpRequestMessage(HttpMethod.Get, endpoint);
 
             var respuesta = await cliente.SendAsync(solicitud);
@@ -136,8 +142,8 @@ namespace Web.Pages.Vehiculos
         private async Task<List<ModeloCarroResponse>> ObtenerModelos(Guid marcaID)
         {
             string endpoint = _configuracion.ObtenerMetodo("ApiEndPoints", "ObtenerModelos");
-            var cliente = new HttpClient();
 
+            using var cliente = ObtenerClienteConToken();
             var solicitud = new HttpRequestMessage(HttpMethod.Get, string.Format(endpoint, marcaID));
 
             var respuesta = await cliente.SendAsync(solicitud);
@@ -153,6 +159,22 @@ namespace Web.Pages.Vehiculos
         {
             var modelos = await ObtenerModelos(marcaID);
             return new JsonResult(modelos);
+        }
+
+        private HttpClient ObtenerClienteConToken()
+        {
+            var tokenClaim = HttpContext.User.Claims
+                .FirstOrDefault(c => c.Type == "AccessToken");
+
+            var cliente = new HttpClient();
+
+            if (tokenClaim != null)
+            {
+                cliente.DefaultRequestHeaders.Authorization =
+                    new AuthenticationHeaderValue("Bearer", tokenClaim.Value);
+            }
+
+            return cliente;
         }
     }
 }
